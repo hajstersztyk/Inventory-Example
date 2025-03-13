@@ -1,0 +1,112 @@
+[gd_scene load_steps=4 format=3 uid="uid://fwa2hscibahr"]
+
+[ext_resource type="PackedScene" uid="uid://n6o0yb58tbnx" path="res://Test3/slot.tscn" id="1_3i2wc"]
+[ext_resource type="Script" path="res://Test3/inventory.gd" id="1_imj5t"]
+[ext_resource type="Script" path="res://Test3/mouse_item.gd" id="3_vgexd"]
+
+[node name="Inventory" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_imj5t")
+
+[node name="Slots" type="GridContainer" parent="."]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -248.0
+offset_top = -190.0
+offset_right = 248.0
+offset_bottom = 6.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.75, 0.75)
+columns = 5
+
+[node name="Slot" parent="Slots" node_paths=PackedStringArray("mouse_item") instance=ExtResource("1_3i2wc")]
+layout_mode = 2
+mouse_item = NodePath("../../MouseItem")
+
+[node name="Slot2" parent="Slots" node_paths=PackedStringArray("mouse_item") instance=ExtResource("1_3i2wc")]
+layout_mode = 2
+mouse_item = NodePath("../../MouseItem")
+
+[node name="Slot3" parent="Slots" node_paths=PackedStringArray("mouse_item") instance=ExtResource("1_3i2wc")]
+layout_mode = 2
+mouse_item = NodePath("../../MouseItem")
+
+[node name="Slot4" parent="Slots" node_paths=PackedStringArray("mouse_item") instance=ExtResource("1_3i2wc")]
+layout_mode = 2
+mouse_item = NodePath("../../MouseItem")
+
+[node name="Slot5" parent="Slots" node_paths=PackedStringArray("mouse_item") instance=ExtResource("1_3i2wc")]
+layout_mode = 2
+mouse_item = NodePath("../../MouseItem")
+
+[node name="Slot6" parent="Slots" node_paths=PackedStringArray("mouse_item") instance=ExtResource("1_3i2wc")]
+layout_mode = 2
+mouse_item = NodePath("../../MouseItem")
+
+[node name="Slot7" parent="Slots" node_paths=PackedStringArray("mouse_item") instance=ExtResource("1_3i2wc")]
+layout_mode = 2
+mouse_item = NodePath("../../MouseItem")
+
+[node name="Slot8" parent="Slots" node_paths=PackedStringArray("mouse_item") instance=ExtResource("1_3i2wc")]
+layout_mode = 2
+mouse_item = NodePath("../../MouseItem")
+
+[node name="Slot9" parent="Slots" node_paths=PackedStringArray("mouse_item") instance=ExtResource("1_3i2wc")]
+layout_mode = 2
+mouse_item = NodePath("../../MouseItem")
+
+[node name="Slot10" parent="Slots" node_paths=PackedStringArray("mouse_item") instance=ExtResource("1_3i2wc")]
+layout_mode = 2
+mouse_item = NodePath("../../MouseItem")
+armor = true
+
+[node name="MouseItem" type="TextureRect" parent="."]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 0
+offset_left = 219.0
+offset_top = 137.0
+offset_right = 283.0
+offset_bottom = 201.0
+mouse_filter = 2
+script = ExtResource("3_vgexd")
+
+[node name="Count" type="Label" parent="MouseItem"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+horizontal_alignment = 2
+vertical_alignment = 2
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_right = 415.0
+offset_bottom = 131.0
+text = "give(\"coin\")"
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -145.0
+offset_bottom = 23.0
+grow_horizontal = 0
+theme_override_font_sizes/font_size = 71
+text = "Inventory Example"
+horizontal_alignment = 2
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

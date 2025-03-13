@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="Item" load_steps=3 format=3 uid="uid://c02b0jq5bdpkm"]
+
+[ext_resource type="Script" path="res://Test3/item.gd" id="1_tv0u3"]
+[ext_resource type="Texture2D" uid="uid://dxaf2xl7ac6c7" path="res://Test3/textures/sword.png" id="2_tvfrd"]
+
+[resource]
+script = ExtResource("1_tv0u3")
+name = "Sword"
+id = "sword"
+stackable = false
+texture = ExtResource("2_tvfrd")
+armor = false
