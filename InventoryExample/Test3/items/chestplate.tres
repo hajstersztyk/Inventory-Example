@@ -10,3 +10,4 @@ id = "chestplate"
 stackable = false
 texture = ExtResource("2_gtov8")
 armor = true
+recipe = Array[String](["coin", "", "", "", "", "", "", "", ""])

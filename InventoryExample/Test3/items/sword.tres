@@ -10,3 +10,4 @@ id = "sword"
 stackable = false
 texture = ExtResource("2_tvfrd")
 armor = false
+recipe = Array[String](["pickaxe", "", "", "", "", "", "", "", ""])

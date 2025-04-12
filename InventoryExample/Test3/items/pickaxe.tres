@@ -10,3 +10,4 @@ id = "pickaxe"
 stackable = false
 texture = ExtResource("2_waruw")
 armor = false
+recipe = Array[String](["coin", "", "coin", "", "chestplate", "", "coin", "", "coin"])
