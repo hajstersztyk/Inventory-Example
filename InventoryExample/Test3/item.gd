@@ -6,3 +6,4 @@ class_name Item
 @export var stackable: bool
 @export var texture: Texture2D
 @export var armor: bool
+@export var recipe: Array[String]

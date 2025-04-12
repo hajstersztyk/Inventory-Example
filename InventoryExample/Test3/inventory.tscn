@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://fwa2hscibahr"]
+[gd_scene load_steps=5 format=3 uid="uid://fwa2hscibahr"]
 
 [ext_resource type="PackedScene" uid="uid://n6o0yb58tbnx" path="res://Test3/slot.tscn" id="1_3i2wc"]
 [ext_resource type="Script" path="res://Test3/inventory.gd" id="1_imj5t"]
+[ext_resource type="Script" path="res://Test3/crafting.gd" id="3_ug3s1"]
 [ext_resource type="Script" path="res://Test3/mouse_item.gd" id="3_vgexd"]
 
 [node name="Inventory" type="Control"]
@@ -21,10 +22,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -248.0
-offset_top = -190.0
-offset_right = 248.0
-offset_bottom = 6.0
+offset_left = -428.0
+offset_top = -114.0
+offset_right = 68.0
+offset_bottom = 82.0
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(0.75, 0.75)
@@ -71,7 +72,116 @@ layout_mode = 2
 mouse_item = NodePath("../../MouseItem")
 armor = true
 
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_right = 415.0
+offset_bottom = 131.0
+text = "give(\"coin\")"
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -145.0
+offset_bottom = 23.0
+grow_horizontal = 0
+theme_override_font_sizes/font_size = 71
+text = "Inventory Example"
+horizontal_alignment = 2
+
+[node name="Crafting" type="Control" parent="."]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("3_ug3s1")
+curr_recipe = Array[String](["", "", "", "", "", "", "", "", ""])
+
+[node name="CraftingSlots" type="GridContainer" parent="Crafting"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 114.0
+offset_top = -152.0
+offset_right = 410.0
+offset_bottom = 144.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.75, 0.75)
+columns = 3
+
+[node name="Slot" parent="Crafting/CraftingSlots" node_paths=PackedStringArray("mouse_item") instance=ExtResource("1_3i2wc")]
+layout_mode = 2
+mouse_item = NodePath("../../../MouseItem")
+crafting_slot = true
+
+[node name="Slot2" parent="Crafting/CraftingSlots" node_paths=PackedStringArray("mouse_item") instance=ExtResource("1_3i2wc")]
+layout_mode = 2
+mouse_item = NodePath("../../../MouseItem")
+crafting_slot = true
+
+[node name="Slot3" parent="Crafting/CraftingSlots" node_paths=PackedStringArray("mouse_item") instance=ExtResource("1_3i2wc")]
+layout_mode = 2
+mouse_item = NodePath("../../../MouseItem")
+crafting_slot = true
+
+[node name="Slot4" parent="Crafting/CraftingSlots" node_paths=PackedStringArray("mouse_item") instance=ExtResource("1_3i2wc")]
+layout_mode = 2
+mouse_item = NodePath("../../../MouseItem")
+crafting_slot = true
+
+[node name="Slot5" parent="Crafting/CraftingSlots" node_paths=PackedStringArray("mouse_item") instance=ExtResource("1_3i2wc")]
+layout_mode = 2
+mouse_item = NodePath("../../../MouseItem")
+crafting_slot = true
+
+[node name="Slot6" parent="Crafting/CraftingSlots" node_paths=PackedStringArray("mouse_item") instance=ExtResource("1_3i2wc")]
+layout_mode = 2
+mouse_item = NodePath("../../../MouseItem")
+crafting_slot = true
+
+[node name="Slot7" parent="Crafting/CraftingSlots" node_paths=PackedStringArray("mouse_item") instance=ExtResource("1_3i2wc")]
+layout_mode = 2
+mouse_item = NodePath("../../../MouseItem")
+crafting_slot = true
+
+[node name="Slot8" parent="Crafting/CraftingSlots" node_paths=PackedStringArray("mouse_item") instance=ExtResource("1_3i2wc")]
+layout_mode = 2
+mouse_item = NodePath("../../../MouseItem")
+crafting_slot = true
+
+[node name="Slot9" parent="Crafting/CraftingSlots" node_paths=PackedStringArray("mouse_item") instance=ExtResource("1_3i2wc")]
+layout_mode = 2
+mouse_item = NodePath("../../../MouseItem")
+crafting_slot = true
+
+[node name="Output" parent="Crafting" node_paths=PackedStringArray("mouse_item") instance=ExtResource("1_3i2wc")]
+layout_mode = 0
+offset_left = 1338.0
+offset_top = 457.0
+offset_right = 1434.0
+offset_bottom = 553.0
+mouse_item = NodePath("../../MouseItem")
+crafting_output = true
+
+[node name="Label" type="Label" parent="Crafting"]
+layout_mode = 0
+offset_left = 579.0
+offset_top = 273.0
+offset_right = 619.0
+offset_bottom = 296.0
+
 [node name="MouseItem" type="TextureRect" parent="."]
+z_index = 90
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 0
 offset_left = 219.0
@@ -90,23 +200,5 @@ grow_horizontal = 2
 grow_vertical = 2
 horizontal_alignment = 2
 vertical_alignment = 2
-
-[node name="Button" type="Button" parent="."]
-layout_mode = 0
-offset_right = 415.0
-offset_bottom = 131.0
-text = "give(\"coin\")"
-
-[node name="Label" type="Label" parent="."]
-layout_mode = 1
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -145.0
-offset_bottom = 23.0
-grow_horizontal = 0
-theme_override_font_sizes/font_size = 71
-text = "Inventory Example"
-horizontal_alignment = 2
 
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
